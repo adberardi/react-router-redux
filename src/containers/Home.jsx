@@ -7,6 +7,7 @@ import CarouselItem from "../components/CarouselItem";
 import { connect } from "react-redux";
 import useInitialState from "../hooks/useInitialState";
 import "../assets/styles/App.scss";
+import Header from "../components/Header";
 
 // const API = "http://localhost:3000/initalState";
 
@@ -14,6 +15,7 @@ const Home = ({ myList, trends, originals }) => {
   // const initialState = useInitialState(API);
   return(
   <>
+  <Header />
     <Search />
     {myList.length > 0 && (
       <Categories title="Mi Lista">

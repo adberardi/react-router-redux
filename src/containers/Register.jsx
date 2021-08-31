@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../assets/styles/components/Register.scss";
 import { registerRequest } from "../actions";
+import Header from "../components/Header";
 
 const Register = (props) => {
   const [form, SetValue] = useState({
@@ -25,36 +26,39 @@ const Register = (props) => {
   };
 
   return (
-    <section className="register">
-      <section className="register__container">
-        <h2>Regístrate</h2>
-        <form className="register__container--form" onSubmit={handleSubmit}>
-          <input
-            className="input"
-            type="text"
-            name="name"
-            onChange={handleInput}
-            placeholder="Nombre"
-          />
-          <input
-            className="input"
-            type="text"
-            name="email"
-            onChange={handleInput}
-            placeholder="Correo"
-          />
-          <input
-            className="input"
-            type="password"
-            name="passw"
-            onChange={handleInput}
-            placeholder="Contraseña"
-          />
-          <button className="button">Registrarme</button>
-        </form>
-        <Link to="/login">Iniciar sesión</Link>
+    <>
+      <Header isRegister/>
+      <section className="register">
+        <section className="register__container">
+          <h2>Regístrate</h2>
+          <form className="register__container--form" onSubmit={handleSubmit}>
+            <input
+              className="input"
+              type="text"
+              name="name"
+              onChange={handleInput}
+              placeholder="Nombre"
+            />
+            <input
+              className="input"
+              type="text"
+              name="email"
+              onChange={handleInput}
+              placeholder="Correo"
+            />
+            <input
+              className="input"
+              type="password"
+              name="passw"
+              onChange={handleInput}
+              placeholder="Contraseña"
+            />
+            <button className="button">Registrarme</button>
+          </form>
+          <Link to="/login">Iniciar sesión</Link>
+        </section>
       </section>
-    </section>
+    </>
   );
 };
 
@@ -62,4 +66,4 @@ const mapDispatchToProps = {
   registerRequest,
 };
 
-export default connect(null,mapDispatchToProps)(Register);
+export default connect(null, mapDispatchToProps)(Register);
